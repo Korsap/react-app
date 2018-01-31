@@ -11,8 +11,14 @@ class Article extends Component {
 		this.handleClick = handleClick.bind(this)
 	}
 
-	componentWillMount () {
+	componentWillMount() {
 		console.log('---', 'mounting...');
+	}
+
+	componentWillReceiveProps(nextProps) {
+		if(nextProps.defaultOpen !== this.props.defaultOpen) this.setState({
+			isOpen: nextProps.defaultOpen
+		})
 	}
 
 	render() {

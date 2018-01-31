@@ -1,17 +1,26 @@
-import React from 'react'
+import React, {PureComponent} from 'react'
 import Article from '../Article'
 import './style.css'
 
-function ArticleList({articles}) {
-	const articleElements = articles.map((article, index) =>
-		<li key={article.id} className='article-list__li'>
-			<Article article={article} defaultOpen={index === 0}/>
-		</li>)
-	return (
-		<ul>
-			{articleElements}
-		</ul>
-	)
-}
+export default class ArticleList extends PureComponent {
+	constructor(props) {
+		super(props)
 
-export default ArticleList
+		this.state = {
+
+		}
+	}
+
+	render() {
+		const {articles} = this.props
+		const articleElements = articles.map((article, index) =>
+			<li key={article.id} className='article-list__li'>
+				<Article article={article} defaultOpen={index === 0}/>
+			</li>)
+		return (
+			<ul>
+				{articleElements}
+			</ul>
+		)
+	}
+}
